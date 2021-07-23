@@ -1,0 +1,43 @@
+import numpy as np 
+import math 
+
+class EKF():
+    def __init__(self, x_0):  
+        self.x = x
+        self.y = math.sqrt(x_0 + 1) + np.random.normal(0, math.sqrt(1/2))
+    
+    def sample_state_noise(self): 
+        self.epsilon_k = np.random.normal(0, math.sqrt(1/2))
+    
+    def sample_obs_nosie(self):  
+        self.nu_k = np.random.normal(0, math.sqrt(1/2))
+    
+    def propagate(self): 
+        self.x = -1*self.x + self.epsilon_k 
+    
+    def generate_obs(self): 
+        self.y = math.sqrt(self.x + 1) + np.random.normal(0, math.sqrt(1/2)) 
+
+    def forward(self):
+        self.sample_state_noise() 
+        self.sample_obs_noise() 
+        self.propagate
+        self.generate_obs() 
+
+def main(ekf, iters):
+    obs_dataset = []
+    for i in range(iters):  
+        self.forward()
+        obs_dataset.append(ekf.y) 
+    return obs_dataset 
+
+    
+if __name__=="__main__":  
+
+    iters = 100 
+    x_0 = np.random.normal(1, math.sqrt(2)) 
+    ekf = EKF(x_0)
+    obs_dataset = main(ekf, iters)
+    print(obs_dataset)
+    
+    
