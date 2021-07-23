@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../mynft"
+		},
+		{
+			"path": "../../../../../hello-world"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
